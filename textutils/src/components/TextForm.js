@@ -25,11 +25,11 @@ export default function TextForm(props) {
   const [text, setText] = useState("");
   return (
     <>
-      <div>
+      <div className='container'>
         
           <h2 className={`text-${props.revMode}`}>{props.heading }</h2>  
           <div className="mb-3">
-          <textarea className="form-control"  id="myBox" value={text} onChange={handleOnChange} style={{backgroundColor:props.mode==='dark'?'grey':'white'}} rows="8"></textarea>
+          <textarea className="form-control"  id="myBox" value={text} onChange={handleOnChange} style={{backgroundColor:props.mode==='dark'?'#042713':'white', color:props.mode==='dark'?'white':'black' }} rows="8"></textarea>
           </div>
            <button className="btn btn-primary mx-1" onClick={handleUpClick}>Convert to Uppercase</button>
            <button className="btn btn-primary mx-1" onClick={handleLoClick}>Convert to Lowercase</button>
@@ -43,7 +43,7 @@ export default function TextForm(props) {
       <p className={`text-${props.revMode}`}>Reading time in minutes: <strong>{0.008 * text.split(" ").length}</strong></p>
       
       <h2 className={`text-${props.revMode}`}>Preview</h2>
-      <p className={`text-${props.revMode}`}>{text}</p>
+      <p className={`text-${props.revMode}`}>{text.length>0?text:"Enter something in the text box to preview here"}</p>
 
       </>
   )

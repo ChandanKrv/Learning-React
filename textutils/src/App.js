@@ -15,7 +15,7 @@ function App() {
     if (mode === 'light') {
       setMode('dark')
       setRevMode('light')
-      document.body.style.backgroundColor = 'grey';
+      document.body.style.backgroundColor = '#042743';
     }
       
     else {
