@@ -26,9 +26,10 @@ export default function TextForm(props) {
   return (
     <>
       <div>
-          <h2>{props.heading }</h2>  
+        
+          <h2 className={`text-${props.revMode}`}>{props.heading }</h2>  
           <div className="mb-3">
-            <textarea className="form-control" id="myBox" value={text} onChange={handleOnChange} rows="8"></textarea>
+          <textarea className="form-control"  id="myBox" value={text} onChange={handleOnChange} style={{backgroundColor:props.mode==='dark'?'grey':'white'}} rows="8"></textarea>
           </div>
            <button className="btn btn-primary mx-1" onClick={handleUpClick}>Convert to Uppercase</button>
            <button className="btn btn-primary mx-1" onClick={handleLoClick}>Convert to Lowercase</button>
@@ -37,12 +38,12 @@ export default function TextForm(props) {
       </div>
       
       <div className="container my-3"></div>
-      <h2>Text Summary</h2>
-      <p><strong>{text.split(" ").length}</strong> words and <strong>{text.length} </strong> characters.</p>
-      <p>Reading time in minutes: <strong>{0.008 * text.split(" ").length}</strong></p>
+      <h2 className={`text-${props.revMode}`}>Text Summary</h2>
+      <p className={`text-${props.revMode}`}><strong>{text.split(" ").length}</strong> words and <strong>{text.length} </strong> characters.</p>
+      <p className={`text-${props.revMode}`}>Reading time in minutes: <strong>{0.008 * text.split(" ").length}</strong></p>
       
-      <h2>Preview</h2>
-      <p>{text}</p>
+      <h2 className={`text-${props.revMode}`}>Preview</h2>
+      <p className={`text-${props.revMode}`}>{text}</p>
 
       </>
   )
