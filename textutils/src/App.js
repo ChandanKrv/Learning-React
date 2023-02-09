@@ -6,6 +6,7 @@ import About from './components/About';
 import { useState } from 'react';
 import Alert from './components/Alert';
 
+
 function App() {
 
   const [mode, setMode] = useState("light");
@@ -45,18 +46,24 @@ function App() {
   return (
     <>
       {/* <Navbar title="TextUtils" aboutText="About Us" /> */}
+
+     
+
       <Navbar title="TextUtils" mode={mode} revMode={revMode} toggleMode={toggleMode} />
       <Alert alert={alert} />
       
       <div className="container my-3"></div>   
-      
+
+
       <div className="container">
-        <TextForm showAlert={showAlert} heading="Enter the text to analyze" mode={mode} revMode={revMode} />
+                    <TextForm showAlert={showAlert} heading="Enter the text to analyze" mode={mode} revMode={revMode} />
+
       </div>   
  
-      
-{/*       <About></About>
- */}    </>
+        <About />
+        
+       
+     </>
     
   );
 }
