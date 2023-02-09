@@ -6,16 +6,21 @@ export default function TextForm(props) {
    // console.log("Uppercase was clicked");
     let newText = text.toUpperCase();
     setText(newText);
+    props.showAlert("Converted to uppercase", 'success');
  }
   const handleLoClick = () => {
    // console.log("Uppercase was clicked");
     let newText = text.toLowerCase();
     setText(newText);
+    props.showAlert("Converted to lowercase", 'success');
+
  }
   const handleClearClick = () => {
    // console.log("Uppercase was clicked");
     let newText = "";
     setText(newText);
+   props.showAlert("Text Cleared", 'success');
+
  }
   const handleOnChange = (event) => {
    // console.log("Uppercase was clicked");
@@ -32,7 +37,6 @@ export default function TextForm(props) {
           <textarea className="form-control"  id="myBox" value={text} onChange={handleOnChange} style={{backgroundColor:props.mode==='dark'?'#042713':'white', color:props.mode==='dark'?'white':'black' }} rows="8"></textarea>
           </div>
            <button className="btn btn-primary mx-1" onClick={handleUpClick}>Convert to Uppercase</button>
-           <button className="btn btn-primary mx-1" onClick={handleLoClick}>Convert to Lowercase</button>
            <button className="btn btn-primary mx-1" onClick={handleLoClick}>Convert to Lowercase</button>
            <button className="btn btn-primary mx-1" onClick={handleClearClick}>Clear Text</button>
       </div>
