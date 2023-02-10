@@ -264,6 +264,7 @@ export class News extends Component {
             "content": null
         }
     ]
+    
 
         constructor() {
             super();
@@ -277,8 +278,8 @@ export class News extends Component {
   render() {
     return (
         <div className='container my-3'>
-            <h2>Syncoi News - Top Headlines</h2>
-
+            <h3>Syncoi News - Top Headlines</h3>
+              
             <div className="row">
                 <div className="col-md-4">
                     <NewsItem title="myTitile" description="descccccc" />
