@@ -15,20 +15,7 @@ export class News extends Component {
             "urlToImage": "https://media.cnn.com/api/v1/images/stellar/prod/230209102039-01-burt-bacharach-lead-image.jpg?c=16x9&q=w_800,c_fill",
             "publishedAt": "2023-02-09T18:26:00Z",
             "content": "Burt Bacharach, the acclaimed composer and songwriter behind dozens of mellow pop hits from the 1950s to the 1980s, including Raindrops Keep Fallin on My Head, (They Long to Be) Close to You and the … [+3922 chars]"
-        },
-        {
-            "source": {
-                "id": "the-hill",
-                "name": "The Hill"
-            },
-            "author": null,
-            "title": "Rep. Angie Craig assaulted in DC apartment building - The Hill",
-            "description": null,
-            "url": "https://thehill.com/homenews/house/3851365-angie-craig-assaulted-in-dc-apartment-building/",
-            "urlToImage": null,
-            "publishedAt": "2023-02-09T18:05:00Z",
-            "content": null
-        },
+        },     
         {
             "source": {
                 "id": null,
@@ -54,20 +41,7 @@ export class News extends Component {
             "urlToImage": "https://i.ytimg.com/vi/Lv5oJt3AH2Y/maxresdefault_live.jpg",
             "publishedAt": "2023-02-09T17:31:15Z",
             "content": null
-        },
-        {
-            "source": {
-                "id": null,
-                "name": "YouTube"
-            },
-            "author": null,
-            "title": "The official beginning of the end for Russell Westbrook - Stephen A. on the Lakers' trade | KJM - ESPN",
-            "description": null,
-            "url": "https://www.youtube.com/supported_browsers?next_url=https:%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DTGsx1toR4pI",
-            "urlToImage": null,
-            "publishedAt": "2023-02-09T17:18:34Z",
-            "content": "Your browser isnt supported anymore. Update it to get the best YouTube experience and our latest features. Learn more\r\nRemind me later"
-        },
+        },     
         {
             "source": {
                 "id": "the-verge",
@@ -80,20 +54,7 @@ export class News extends Component {
             "urlToImage": "https://cdn.vox-cdn.com/thumbor/HX20mew1cMyjU7-GqSJ59JxS-T0=/0x0:1280x720/1200x628/filters:focal(640x360:641x361)/cdn.vox-cdn.com/uploads/chorus_asset/file/24420463/img_5487.png",
             "publishedAt": "2023-02-09T17:11:16Z",
             "content": "Game Boy games make Nintendo Switch Online feel like the ultimate retro subscription\r\nGame Boy games make Nintendo Switch Online feel like the ultimate retro subscription\r\n / There are still a few is… [+3564 chars]"
-        },
-        {
-            "source": {
-                "id": "ign",
-                "name": "IGN"
-            },
-            "author": null,
-            "title": "Hogwarts Legacy Has One of Steam's Biggest Early Access Launches - IGN",
-            "description": null,
-            "url": "https://www.ign.com/articles/hogwarts-legacy-has-one-of-steams-biggest-early-access-launches",
-            "urlToImage": null,
-            "publishedAt": "2023-02-09T17:07:51Z",
-            "content": null
-        },
+        },    
         {
             "source": {
                 "id": null,
@@ -275,25 +236,23 @@ export class News extends Component {
             }
    }
 
-  render() {
-    return (
-        <div className='container my-3'>
-            <h3>Syncoi News - Top Headlines</h3>
-              
-            <div className="row">
-                <div className="col-md-4">
-                    <NewsItem title="myTitile" description="descccccc" />
-                </div>
-                <div className="col-md-4">
-                    <NewsItem title="myTitile" description="descccccc" />
-                </div>
-                <div className="col-md-4">
-                    <NewsItem title="myTitile" description="descccccc" />
-                </div>                        
-            </div>
-      </div>
-    )
-  }
+    render() {
+        return (
+            <div className='container my-3'>
+                <h3>Syncoi News - Top Headlines</h3>
+                <div className="row">
+                {this.state.articles.map((element) => {                   
+                    return <div className="col-md-4" key={element.url}>
+                        <NewsItem title={element.title.slice(0,40)} description={element.description.slice(0,80)} imageUrl={element.urlToImage} newsUrl={element.url} />
+                    </div>                   
+                
+              })}
+               
+
+              </div>  
+          </div>
+        )   
+    }
 }
 
 export default News
