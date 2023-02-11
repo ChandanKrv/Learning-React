@@ -1,241 +1,49 @@
 import React, { Component } from 'react'
 import NewsItem from './NewsItem'
 
-export class News extends Component {
-   articles = [
-        {
-            "source": {
-                "id": "cnn",
-                "name": "CNN"
-            },
-            "author": "Jamie Gangel",
-            "title": "Burt Bacharach, writer of such classic pop hits as 'Raindrops Keep Fallin' on My Head,' dies at 94 - CNN",
-            "description": "Burt Bacharach, the acclaimed composer and songwriter behind dozens of mellow pop hits from the 1950s to the 1980s, including \"Raindrops Keep Fallin' on My Head,\" \"(They Long to Be) Close to You\" and the theme from the movie \"Arthur,\" has died, a family membe…",
-            "url": "https://www.cnn.com/2023/02/09/entertainment/burt-bacharach-death/index.html",
-            "urlToImage": "https://media.cnn.com/api/v1/images/stellar/prod/230209102039-01-burt-bacharach-lead-image.jpg?c=16x9&q=w_800,c_fill",
-            "publishedAt": "2023-02-09T18:26:00Z",
-            "content": "Burt Bacharach, the acclaimed composer and songwriter behind dozens of mellow pop hits from the 1950s to the 1980s, including Raindrops Keep Fallin on My Head, (They Long to Be) Close to You and the … [+3922 chars]"
-        },     
-        {
-            "source": {
-                "id": null,
-                "name": "PEOPLE"
-            },
-            "author": "https://www.facebook.com/peoplemag",
-            "title": "Britney Spears' Inner Circle Has 'Grown More Concerned' for Her as Plans for Intervention Stall: Sources - PEOPLE",
-            "description": "Britney Spears has \"been going through a lot and has been increasingly combative,\" sources tell PEOPLE",
-            "url": "https://people.com/music/britney-spears-intervention-stalls-inner-cycle-concerned/",
-            "urlToImage": "https://people.com/thmb/g8quHzzRS53-i1OKZ52bdL3M1vY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(689x69:691x71)/britney-spears-privacy-012623-4b03f8bd8ac046d89ecc4e77f1f78d18.jpg",
-            "publishedAt": "2023-02-09T18:05:00Z",
-            "content": "Those in Britney Spears' life are worried about the pop star as she goes through a difficult time, multiple sources close to the singer tell PEOPLE.\r\nSpears' inner circle had an intervention planned … [+3059 chars]"
-        },
-        {
-            "source": {
-                "id": null,
-                "name": "YouTube"
-            },
-            "author": null,
-            "title": "BTL LIVE | Makhachev vs. Volkanovski, UFC 284, McGregor vs. Chandler, Bellator 290 | MMA Fighting - MMAFightingonSBN",
-            "description": "Islam Makhachev will look to defend his #UFC lightweight title for the first time against the No. 1 fighter in the world, and featherweight champion Alexande...",
-            "url": "https://www.youtube.com/watch?v=Lv5oJt3AH2Y",
-            "urlToImage": "https://i.ytimg.com/vi/Lv5oJt3AH2Y/maxresdefault_live.jpg",
-            "publishedAt": "2023-02-09T17:31:15Z",
-            "content": null
-        },     
-        {
-            "source": {
-                "id": "the-verge",
-                "name": "The Verge"
-            },
-            "author": "Andrew Webster",
-            "title": "Game Boy games make Nintendo Switch Online feel like the ultimate retro subscription - The Verge",
-            "description": "With the addition of Game Boy and GBA games like Tetris and The Legend of Zelda: Link’s Awakening, Nintendo Switch Online is an almost ideal retro subscription service.",
-            "url": "https://www.theverge.com/2023/2/9/23592549/nintendo-switch-online-retro-subscription-game-boy-gba",
-            "urlToImage": "https://cdn.vox-cdn.com/thumbor/HX20mew1cMyjU7-GqSJ59JxS-T0=/0x0:1280x720/1200x628/filters:focal(640x360:641x361)/cdn.vox-cdn.com/uploads/chorus_asset/file/24420463/img_5487.png",
-            "publishedAt": "2023-02-09T17:11:16Z",
-            "content": "Game Boy games make Nintendo Switch Online feel like the ultimate retro subscription\r\nGame Boy games make Nintendo Switch Online feel like the ultimate retro subscription\r\n / There are still a few is… [+3564 chars]"
-        },    
-        {
-            "source": {
-                "id": null,
-                "name": "CNBC"
-            },
-            "author": "Amelia Lucas",
-            "title": "Chick-fil-A will test a cauliflower sandwich in its first plant-based pilot - CNBC",
-            "description": "Chick-fil-A said it's been working on a plant-based sandwich for nearly four years.",
-            "url": "https://www.cnbc.com/2023/02/09/chick-fil-a-cauliflower-sandwich.html",
-            "urlToImage": "https://image.cnbcfm.com/api/v1/image/107192006-1675959854677-CauliflowerSandwich_1675780866580-HR.jpg?v=1675962090&w=1920&h=1080",
-            "publishedAt": "2023-02-09T17:01:30Z",
-            "content": "Chick-fil-A will test its first plant-based entree: a cauliflower sandwich.\r\nThe new sandwich closely resembles its famous chicken sandwich, but uses breaded and pressure-cooked cauliflower in place … [+1288 chars]"
-        },
-        {
-            "source": {
-                "id": "financial-times",
-                "name": "Financial Times"
-            },
-            "author": "Ortenca Aliaj, Christopher Grimes",
-            "title": "Nelson Peltz calls off Disney proxy fight - Financial Times",
-            "description": "Activist investor abandons battle after media group announced restructuring plan",
-            "url": "https://www.ft.com/content/1eeca7df-4483-4d8f-8042-ef064f5b5970",
-            "urlToImage": "https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fd1e00ek4ebabms.cloudfront.net%2Fproduction%2F549993ad-778a-476e-bb02-ae4105733c27.jpg?source=next-opengraph&fit=scale-down&width=900",
-            "publishedAt": "2023-02-09T16:44:53Z",
-            "content": "Nelson Peltz has called time on his fight against Walt Disney less than a month after the activist investor said he would seek a seat on the companys board of directors, ending what was expected to b… [+2406 chars]"
-        },
-        {
-            "source": {
-                "id": null,
-                "name": "CNBC"
-            },
-            "author": "Natasha Turak",
-            "title": "Zelenskyy makes heartfelt call for Ukraine's EU membership; Von der Leyen announces new sanctions on Russian propagandists - CNBC",
-            "description": "The Ukrainian leader addressed the European Parliament in his second known overseas trip since Russia invaded his country in February last year.",
-            "url": "https://www.cnbc.com/2023/02/09/russia-ukraine-live-updates.html",
-            "urlToImage": "https://image.cnbcfm.com/api/v1/image/107191786-1675948215297-gettyimages-1246943857-AFP_338V334.jpeg?v=1675948344&w=1920&h=1080",
-            "publishedAt": "2023-02-09T16:42:00Z",
-            "content": "This content was produced in Russia, where the law restricts coverage of Russian military operations in Ukraine.\r\nMOSCOW Russian consumer demand contracted at its fastest pace in seven years in 2022 … [+1141 chars]"
-        },
-        {
-            "source": {
-                "id": "fox-news",
-                "name": "Fox News"
-            },
-            "author": "Chris Pandolfo, Patrick Ward",
-            "title": "House Republicans press Hunter Biden, James Biden, Eric Schwerin for business deal documents - Fox News",
-            "description": "The House Committee on Oversight and Accountability on Thursday sent a request for Hunter Biden to turn over documents and records of his business dealings.",
-            "url": "https://www.foxnews.com/politics/house-republicans-press-hunter-biden-james-biden-eric-schwerin-business-deal-documents",
-            "urlToImage": "https://static.foxnews.com/foxnews.com/content/uploads/2023/02/AP23035612940349.jpg",
-            "publishedAt": "2023-02-09T16:35:00Z",
-            "content": "House Oversight Committee Republicans on Thursday made a formal request for Hunter Biden to turn over information and records related to his foreign business dealings.\r\nChairman James Comer, R-Ky., a… [+3035 chars]"
-        },
-        {
-            "source": {
-                "id": "the-washington-post",
-                "name": "The Washington Post"
-            },
-            "author": "Adela Suliman",
-            "title": "Elon Musk’s SpaceX says it didn't intend Starlink to be used for war - The Washington Post",
-            "description": "Gwynne Shotwell, SpaceX’s chief operating officer, said the company's Starlink satellite internet service for Ukraine was “never intended to be weaponized.”",
-            "url": "https://www.washingtonpost.com/world/2023/02/09/starlink-restricts-internet-drones-ukraine/",
-            "urlToImage": "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://d1i4t8bqe7zgj6.cloudfront.net/02-09-2023/t_4b44594710ea4a479b3598e04496969b_name_W3G5ZMM7QMHFGN2NPYLXVTNLKU.jpg&w=1440",
-            "publishedAt": "2023-02-09T16:18:35Z",
-            "content": "Comment on this story\r\nElon Musks SpaceX company has accused the Ukrainian military of using its Starlink internet service to power drones in its ongoing conflict with Russia and says it has taken st… [+3731 chars]"
-        },
-        {
-            "source": {
-                "id": null,
-                "name": "BBC News"
-            },
-            "author": "https://www.facebook.com/bbcnews",
-            "title": "Turkey earthquake: Anger as buildings meant to withstand tremors crumbled - BBC",
-            "description": "Recently built properties advertised as earthquake-proof were among collapsed buildings in Turkey.",
-            "url": "https://www.bbc.com/news/64568826",
-            "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/10F3D/production/_128573496_composite-002.jpg",
-            "publishedAt": "2023-02-09T16:01:41Z",
-            "content": "The sight of newly constructed apartments collapsing in the earthquakes that hit Turkey has sparked anger. The BBC examined three new buildings, turned to rubble, to find out what they reveal about b… [+6874 chars]"
-        },
-        {
-            "source": {
-                "id": null,
-                "name": "YouTube"
-            },
-            "author": null,
-            "title": "Air - Official Trailer (2023) Ben Affleck, Matt Damon - IGN",
-            "description": "Check out the trailer for Air, an upcoming movie from director Ben Affleck. Air stars Matt Damon, Ben Affleck, Jason Bateman, Chris Messina, Matthew Maher, M...",
-            "url": "https://www.youtube.com/watch?v=FOhhGFCsGrY",
-            "urlToImage": "https://i.ytimg.com/vi/FOhhGFCsGrY/maxresdefault.jpg",
-            "publishedAt": "2023-02-09T15:58:09Z",
-            "content": null
-        },
-        {
-            "source": {
-                "id": "usa-today",
-                "name": "USA Today"
-            },
-            "author": "John Bacon, USA TODAY",
-            "title": "Turkey earthquake live updates: UN aid reaches Syria, over 19,300 dead - USA TODAY",
-            "description": "The international effort to provide food and shelter to victims of the earthquake that rocked Turkey and Syria intensified Thursday. Live updates.",
-            "url": "https://www.usatoday.com/story/news/world/2023/02/09/turkey-earthquake-live-updates-death-toll/11218360002/",
-            "urlToImage": "https://www.gannett-cdn.com/presto/2023/02/09/USAT/5e36056a-0f0a-46c7-a5a4-5008dc7ff4fb-AFP_AFP_338V6EK.jpg?auto=webp&crop=5567,3132,x0,y566&format=pjpg&width=1200",
-            "publishedAt": "2023-02-09T15:30:46Z",
-            "content": "The international effort to provide food and shelter to victims of the killer earthquake that rocked Turkey and Syria three days ago intensified Thursday as emergency personnel rushed tents and equip… [+5145 chars]"
-        },
-        {
-            "source": {
-                "id": "nfl-news",
-                "name": "NFL News"
-            },
-            "author": "NFL",
-            "title": "Super Bowl LVII picks: Will Kansas City Chiefs or Philadelphia Eagles win Lombardi Trophy? - NFL.com",
-            "description": "Can Andy Reid, Patrick Mahomes and the Chiefs win their second title in four years? Will Jalen Hurts secure his first ring and bring a second Lombardi Trophy to Philadelphia? Which players will steal the spotlight? NFL Media analysts provide predictions for S…",
-            "url": "https://www.nfl.com/news/super-bowl-lvii-picks-will-kansas-city-chiefs-or-philadelphia-eagles-win-lombard",
-            "urlToImage": "https://static.www.nfl.com/image/private/t_editorial_landscape_12_desktop/league/mxlzh7efkb33puvhi2kn",
-            "publishedAt": "2023-02-09T15:20:00Z",
-            "content": "Will Andy Reid, Patrick Mahomes and the Kansas City Chiefs lift the Lombardi Trophy for the second time in four years? Can Jalen Hurts lead the Philadelphia Eagles to the franchise's second title, wi… [+144 chars]"
-        },
-        {
-            "source": {
-                "id": "cnn",
-                "name": "CNN"
-            },
-            "author": "Jennifer Hansler, Kylie Atwood, Manu Raju, Jeremy Herb",
-            "title": "Chinese spy balloon contained technology to monitor communication signals, US says - CNN",
-            "description": "The Biden administration has determined that the suspected Chinese surveillance balloon that traversed the United States last week was operating with electronic surveillance technology capable of monitoring US communications, according to a senior State Depar…",
-            "url": "https://www.cnn.com/2023/02/09/politics/spy-balloon-technology/index.html",
-            "urlToImage": "https://media.cnn.com/api/v1/images/stellar/prod/230207102801-01-spy-balloon-recovery.jpg?c=16x9&q=w_800,c_fill",
-            "publishedAt": "2023-02-09T15:15:00Z",
-            "content": "The Biden administration has determined that the suspected Chinese surveillance balloon that traversed the United States last week was operating with electronic surveillance technology capable of mon… [+6164 chars]"
-        },
-        {
-            "source": {
-                "id": "usa-today",
-                "name": "USA Today"
-            },
-            "author": "Jeff Zillgitt, Jace Evans and Steve Gardner, USA TODAY",
-            "title": "NBA trade deadline live tracker: Basketball's latest buzz, updates - USA TODAY",
-            "description": "NBA trade deadline day has arrived and some big names have already been dealt. Stay up to date on the latest rumors and moves.",
-            "url": "https://www.usatoday.com/story/sports/nba/2023/02/09/nba-trade-deadline-updates-tracking-basketball-buzz/11218650002/",
-            "urlToImage": "https://www.gannett-cdn.com/presto/2023/02/09/USAT/03ec612c-89ce-43b9-aa9a-5fb3654dbd75-durant0209.jpg?auto=webp&crop=4984,2804,x0,y0&format=pjpg&width=1200",
-            "publishedAt": "2023-02-09T14:34:56Z",
-            "content": "It might be Super Bowl week, but the NBA has refused to stay out of the spotlight.\r\nWhile LeBron James became the league's all-time leading scorer on Tuesday night, teams have been shoring up for the… [+3775 chars]"
-        },
-        {
-            "source": {
-                "id": null,
-                "name": "YouTube"
-            },
-            "author": null,
-            "title": "Republican-Led U.S. House Panel Probes Twitter Block Of Hunter Biden Story | English News LIVE - CNN-News18",
-            "description": "Republican-Led U.S. House Panel Probes Twitter Block Of Hunter Biden Story | English News LIVE Republicans in the U.S. House of Representatives sought to del...",
-            "url": "https://www.youtube.com/watch?v=tc_7z6Pjizs",
-            "urlToImage": "https://i.ytimg.com/vi/tc_7z6Pjizs/maxresdefault_live.jpg",
-            "publishedAt": "2023-02-09T14:30:49Z",
-            "content": null
-        },
-        {
-            "source": {
-                "id": null,
-                "name": "YouTube"
-            },
-            "author": null,
-            "title": "Sen. John Fetterman hospitalized after feeling 'lightheaded' - TODAY",
-            "description": "U.S. Senator John Fetterman was taken to George Washington University Hospital Wednesday after complaining about feeling lightheaded. The Pennsylvania Democr...",
-            "url": "https://www.youtube.com/watch?v=xdMNTWdJqw4",
-            "urlToImage": "https://i.ytimg.com/vi/xdMNTWdJqw4/maxresdefault.jpg",
-            "publishedAt": "2023-02-09T14:00:36Z",
-            "content": null
-        }
-    ]
-    
+export class News extends Component { 
 
-        constructor() {
-            super();
-        
+     constructor() {        
+            super();        
             this.state = {
-                articles: this.articles,
-                loading:false
+                articles: [],
+                loading: false,
+                page:1,
             }
    }
 
+   async componentDidMount() {
+        let url = "https://newsapi.org/v2/top-headlines?country=in&apiKey=c0bc675a552d4d3298f6ceb6333adbc8&page=1&pageSize=20";
+        let data = await fetch(url);
+       let parsedData = await data.json();
+       this.setState({ articles: parsedData.articles, totalResults: parsedData.totalResults });
+    }
+    
+
+    handlePrevClick = async () => {
+       let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=c0bc675a552d4d3298f6ceb6333adbc8&page=${this.state.page-1}&pageSize=20`;
+        let data = await fetch(url);
+        let parsedData = await data.json();      
+        this.setState({
+            page: this.state.page - 1,
+             articles: parsedData.articles
+        })
+    }
+
+    handleNextClick = async () => {
+        if (this.state.page + 1 > Math.ceil(this.state.totalResults / 20)){}else {
+            let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=c0bc675a552d4d3298f6ceb6333adbc8&page=${this.state.page + 1}&pageSize=20`;
+            let data = await fetch(url);
+            let parsedData = await data.json();
+            this.setState({
+                page: this.state.page + 1,
+                articles: parsedData.articles
+            })
+        }
+    }
+   
+
+    
     render() {
         return (
             <div className='container my-3'>
@@ -243,13 +51,16 @@ export class News extends Component {
                 <div className="row">
                 {this.state.articles.map((element) => {                   
                     return <div className="col-md-4" key={element.url}>
-                        <NewsItem title={element.title.slice(0,40)} description={element.description.slice(0,80)} imageUrl={element.urlToImage} newsUrl={element.url} />
+                        <NewsItem title={element.title?element.title.slice(0,40):""} description={element.description?element.description.slice(0,80):""} imageUrl={element.urlToImage} newsUrl={element.url} />
                     </div>                   
                 
-              })}
-               
+              })}               
 
-              </div>  
+                </div> 
+                <div className="container d-flex justify-content-between">              
+                <button disabled={this.state.page<=1} type="button" className="btn btn-dark" onClick={this.handlePrevClick}>&larr; Previous</button>
+                <button type="button" className="btn btn-dark" onClick={this.handleNextClick}>Next &rarr;</button>
+            </div>  
           </div>
         )   
     }
