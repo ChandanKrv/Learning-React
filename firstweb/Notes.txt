@@ -1,0 +1,9 @@
+Create React Application: npx create-react-app AppName
+Start React Application: npm start
+
+Install Boot Strap in React Application
+1. npm i bootstrap  //https://www.npmjs.com/package/bootstrap
+2. Import these two in index.js
+        import "bootstrap/dist/css/bootstrap.css"
+        import "bootstrap/dist/js/bootstrap.bundle"
+
