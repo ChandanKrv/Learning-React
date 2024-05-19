@@ -86,6 +86,10 @@ export default function App() {
     setSelectedId(null);
 }
 
+  function handleAddWatched(movie) {
+    setWatched((watched) =>[...watched,movie])
+  }
+
   useEffect(function () {
 
     async function fetchMovies() {
@@ -142,7 +146,11 @@ export default function App() {
         <Box>
           <>
             {selectedId ?
-              <MovieDetails selectedId={selectedId} onCloseMovie={handleCloseMovie} />
+              <MovieDetails selectedId={selectedId}
+                onCloseMovie={handleCloseMovie} 
+              onAddWatched={handleAddWatched}
+
+                />
                         :
               <>
                 <WatchedSummary watched={watched} />
@@ -281,12 +289,26 @@ function Movie({movie,onSelectMovie}) {
   </li>)
 }
 
-function MovieDetails({ selectedId, onCloseMovie }) {
+function MovieDetails({ selectedId, onCloseMovie, onAddWatched }) {
   const [movie, setMovie] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
   const { Title: title, Year: year, Poster: poster, Runtime: runtime, imdbRating, Plot: plot, Released: released, Actors: actors, Director: director, Genre: genre, } = movie;
   
+  function handleAdd() {
+    const newWatchedMovie = {
+      imdbID: selectedId,
+      title,
+      year,
+      poster,
+      imdbRating: Number(imdbRating),
+      runtime : runtime.split(' ').at(0),
+    }
+    onAddWatched(newWatchedMovie);
+    onCloseMovie();
+  }
+
+
   useEffect(function () {
     async function getMovieDetails() {
       setIsLoading(true)
@@ -320,7 +342,8 @@ function MovieDetails({ selectedId, onCloseMovie }) {
      
       <section>
         <div className="rating">
-          <StarRating maxRating={10} size={24} />
+                <StarRating maxRating={10} size={24} />
+                <button className="btn-add" onClick={handleAdd}>+ Add to list</button>
         </div>
       
         <p><em>{plot}</em></p>
@@ -377,8 +400,8 @@ function WatchedMoviesList({watched}) {
 function WatchedMovie({ movie}){
   return (
     <li key={movie.imdbID}>
-                    <img src={movie.Poster} alt={`${movie.Title} poster`} />
-                    <h3>{movie.Title}</h3>
+                    <img src={movie.poster} alt={`${movie.title} poster`} />
+                    <h3>{movie.title}</h3>
                     <div>
                       <p>
                         <span>⭐️</span>
