@@ -93,14 +93,17 @@ export default function App() {
   function handleDeleteWatched(id) {
     setWatched(watched=>watched.filter(movie=>movie.imdbID !== id))
   }
-  useEffect(function () {
 
+  
+  useEffect(function () {
+    const controller = new AbortController();
     async function fetchMovies() {
       try {
         setIsLoading(true);        
-        setError(''); 
+        setError(""); 
 
-      const res = await fetch(`http://www.omdbapi.com/?apikey=${API_KEY}&s=${query}`)
+        const res = await fetch(`http://www.omdbapi.com/?apikey=${API_KEY}&s=${query}`,
+          { signal: controller.signal })
       
       if (!res.ok)
         throw new Error("Something went wrong with fetching movies")
@@ -111,10 +114,15 @@ export default function App() {
         throw new Error("Movie not found!")
            
       setMovies(data.Search)  
+        setError("");
         
     } catch (err) {
-      console.log(err.message);
-      setError(err.message)
+        console.log(err.message);
+
+        if (err.name !== "AbortError") {
+        setError(err.message)
+        }
+      
     } finally {      
       setIsLoading(false);
       }      
@@ -126,7 +134,14 @@ export default function App() {
       return;
   }
 
+    handleCloseMovie();
     fetchMovies();
+ 
+    //Clean up function
+    return function () {
+      controller.abort();
+    };
+
   },[query])
   
  
@@ -320,8 +335,24 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
     onCloseMovie();
   }
 
+  useEffect(
+    function () {
+      function callback(e) {
+        if (e.code === 'Escape') {
+          onCloseMovie();
+        }
+      }
 
-  useEffect(function () {
+      document.addEventListener('keydown', callback);
+
+      return function () {
+        document.removeEventListener("keydown", callback);
+      };
+    }, [onCloseMovie]);
+
+
+
+  useEffect(function () {   
     async function getMovieDetails() {
       setIsLoading(true)
       const res = await fetch(
@@ -335,6 +366,18 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
     getMovieDetails();
   }, [selectedId]);
 
+  useEffect(function () {
+    if (!title)
+      return;
+
+    document.title = `Movie | ${title}`;
+
+    //Clean up function
+    return function()
+      {
+      document.title = "usePopcorn";
+      }
+  }, [title]);
   
 
   return (
