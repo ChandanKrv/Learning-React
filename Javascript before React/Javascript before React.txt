@@ -16,7 +16,7 @@ https://youtu.be/78Homn79Qsk?list=PLlasXeu85E9eWOpw9jxHOQyGMRiBZ60aX
 Symbol typing
 
 Videos:
-0. https://www.youtube.com/watch?v=ZvbzSrg0afE&list=PLlasXeu85E9cQ32gLCvAvr9vNaUccPVNP&index=2
+0.0. https://www.youtube.com/watch?v=ZvbzSrg0afE&list=PLlasXeu85E9cQ32gLCvAvr9vNaUccPVNP&index=2
 0.1. https://youtu.be/78Homn79Qsk?list=PLlasXeu85E9eWOpw9jxHOQyGMRiBZ60aX
 =================================================================================
 1.0. https://youtu.be/Fnlnw8uY6jo
@@ -42,4 +42,5 @@ Videos:
 6.4. https://youtu.be/DlTVt1rZjIo
 
 7.0. https://youtu.be/6nv3qy3oNkc
+8.0 https://youtu.be/qikxEIxsXco
 
