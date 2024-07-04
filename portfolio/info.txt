@@ -1,0 +1,8 @@
+My Portfolio using: https://youtu.be/FTH6Dn3AyIQ
+ReactJS, NextJS, Tailwindcss,Framer Motion, Aceternity UI, Sentry Typescript, 
+
+
+
+Next JS installations
+
+npx create-next-app@latest ./
