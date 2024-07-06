@@ -3,7 +3,7 @@ import theme_pattern from "../../assets/theme_pattern.svg";
 import profile_img from "../../assets/about_profile.svg";
 function About() {
   return (
-    <div className="about">
+    <div id="about" className="about">
       <div className="about-title">
         <h1>About me</h1>
         <img src={theme_pattern} alt="" />
@@ -40,7 +40,10 @@ function About() {
               <p>Javascript</p>
               <hr style={{ width: "60%" }} />
             </div>
-            <div className="about-skill"> <p>Next JS</p> <hr style={{ width: "50%" }} /> </div>
+            <div className="about-skill">
+              {" "}
+              <p>Next JS</p> <hr style={{ width: "50%" }} />{" "}
+            </div>
           </div>
         </div>
       </div>
