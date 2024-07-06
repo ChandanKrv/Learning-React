@@ -1,11 +1,9 @@
-import React from 'react'
-
 function App() {
   return (
-    <div>
-      
-    </div>
-  )
+    <>
+      <div className="text-9xl">Hello123</div>;
+    </>
+  );
 }
 
-export default App
+export default App;
